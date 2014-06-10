@@ -53,6 +53,17 @@
   
   In build.sbt:
     unmanagedJars in Compile += file("lift-paypalrest_2.10-0.0.1.jar")
+    libraryDependencies ++= {
+      val liftVersion = "2.6-SNAPSHOT"
+      val specsVersion = "2.4-SNAPSHOT"
+      Seq(
+        "net.liftweb" %% "lift-webkit" % liftVersion % "compile",
+        "org.specs2" %% "specs2-core" % specsVersion % "test",
+        "org.specs2" %% "specs2-junit" % specsVersion % "test",
+        "net.databinder.dispatch" %% "dispatch-core" % "0.11.0",
+        "net.databinder.dispatch" %% "dispatch-lift-json" % "0.11.0"
+      )
+    }
     
   Add your Test credential client id and secret from https://developer.paypal.com/webapps/developer/applications/myapps to
     /src/main/resources/props/default.props
