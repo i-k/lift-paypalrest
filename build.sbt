@@ -1,4 +1,4 @@
-name := "PayPal REST for Lift"
+name := "Lift PayPalRest"
 
 version := "0.0.1"
 
@@ -25,8 +25,8 @@ libraryDependencies ++= {
   val specsVersion = "2.4-SNAPSHOT"
   Seq(
     "net.liftweb" %% "lift-webkit" % liftVersion % "compile",
-    "org.specs2"        %% "specs2-core" % specsVersion % "test",
-    "org.specs2"        %% "specs2-junit" % specsVersion % "test",
+    "org.specs2" %% "specs2-core" % specsVersion % "test",
+    "org.specs2" %% "specs2-junit" % specsVersion % "test",
     "net.databinder.dispatch" %% "dispatch-core" % "0.11.0",
     "net.databinder.dispatch" %% "dispatch-lift-json" % "0.11.0"
   )

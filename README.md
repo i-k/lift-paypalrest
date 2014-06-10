@@ -49,10 +49,10 @@
   4. Add to boot from the previous step: LiftRules.dispatch.append(YourPayPalRestServer)
 
 ## Installing
-  Download lift-paypal_2.10-0.0.1.jar into your project or [build it yourself](#building) (proper hosted builds coming soon)
+  Download lift-paypalrest_2.10-0.0.1.jar into your project folder or [build it yourself](#building) (proper hosted builds coming soon)
   
   In build.sbt:
-    unmanagedJars in Compile += file("lift-paypal_2.10-0.0.1.jar")
+    unmanagedJars in Compile += file("lift-paypalrest_2.10-0.0.1.jar")
     
   Add your Test credential client id and secret from https://developer.paypal.com/webapps/developer/applications/myapps to
     /src/main/resources/props/default.props
