@@ -1,7 +1,7 @@
-# Lift PayPal
+# Lift PayPal REST
 
-Lift PayPal is a [Lift](http://github.com/lift) module that makes it easy to create Comet applications with PayPal functionality.
-[Here is an example website](https://easyethiopia.com) built with Lift PayPal.
+Lift PayPal REST is a [Lift](http://github.com/lift) module that makes it easy to create Comet applications using [PayPal's REST API](https://developer.paypal.com/webapps/developer/docs/api/).
+[Here is an example website](https://easyethiopia.com) built with it.
 Good stuff:
 
 -More control of your checkout process with Authorizations, Payments, PayerInfos, etc.
@@ -20,8 +20,10 @@ Good stuff:
   4. Add the object that extends PayPalRestHelper to boot: LiftRules.dispatch.append(PayPalRestServer)
 
 ## Installing
+  Download lift-paypal_2.10-0.0.1.jar into your project or [build it yourself](#building) (proper hosted builds coming soon)
+  
   In build.sbt:
-    dependsOn(uri("git://github.com/i-k/lift-paypal.git"))
+    unmanagedJars in Compile += file("lift-paypal_2.10-0.0.1.jar")
     
   Add your Test credential client id and secret from https://developer.paypal.com/webapps/developer/applications/myapps to
     /src/main/resources/props/default.props
@@ -57,6 +59,7 @@ Good stuff:
 ## Coming soon
   Premade case classes for the logic between Comets and the API-actor
   More default values to PayPalRestHelper
+  Hosted builds
 
 ## License
 
