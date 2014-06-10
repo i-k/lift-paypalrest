@@ -1,13 +1,14 @@
 # Lift PayPal REST
 
-Lift PayPal REST is a [Lift](http://github.com/lift) module that makes it easy to create Comet applications using [PayPal's REST API](https://developer.paypal.com/webapps/developer/docs/api/).
+**Lift PayPal REST** is a [Lift](http://github.com/lift) module that makes it easy to create Comet applications using [PayPal's REST API](https://developer.paypal.com/webapps/developer/docs/api/).
 [Here is an example website](https://easyethiopia.com) built with it.
-Good stuff:
 
--More control of your checkout process with Authorizations, Payments, PayerInfos, etc.
--All monetary values are in CurrencyZone#Currency
--Take control of the API call with futures. Use with Actors or directly with Await
--All PayPal messages are case classes
+##Good stuff:
+
+* More control of your checkout process with Authorizations, Payments, PayerInfos, etc.
+* All monetary values are in CurrencyZone#Currency
+* Take control of the API call with futures. Use with Actors or directly with Await
+* All PayPal messages are case classes
 
 ## Example Usage
   1. Create an Actor object that extends LiftPayPalServer.
