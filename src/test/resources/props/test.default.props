@@ -1,0 +1,4 @@
+paypal.endpoint=api.sandbox.paypal.com
+paypal.client.id=
+paypal.client.secret=
+paypal.callbackurl=http://localhost:8080/paypal

@@ -1,0 +1,17 @@
+# Ignore these files:
+*.lck
+*.log
+*.dat
+*.ctrl
+*.class
+*.jar
+*.war
+*~
+*.keep
+*.dump
+*.db
+target/*
+project/target/*
+project/project/target/*
+*.geany
+sbt
