@@ -7,18 +7,46 @@
 
 * More control of your checkout process with Authorizations, Payments, PayerInfos, etc.
 * All monetary values are in CurrencyZone#Currency
-* Take control of the API call with futures. Use with Actors or directly with Await
+* More control of the API call using futures. Use with Actors or directly with Await
 * All PayPal messages are case classes
 
 ## Example Usage
   1. Create an Actor object that extends LiftPayPalServer.
   This Actor makes the actual API calls and deals with handling tokens, etc.
   2. Create a Comet for dealing with the purchasing logic.
-  This Comet will send messages to the actor that extends LiftPayPalServer
+  This Comet will send messages to the actor from the previous step
   and receives messages back by e.g. sending a reference to itself in the messages sent to the API server.
+  E.g.
+    "#buy [onclick]" #> {
+      YourPayPalServer ! CreateAuthorization(callBackUrl, callBackCancelUrl, itemsInfoEtc, price, this)
+      ...
+    }
+    ...
+    override def lowPriority: PartialFunction[Any, Unit] = {
+      case AuthorizationCreated(id, approvalUrl) => ...
+    }
+    
   3. Create an object that extends PayPalRestHelper and add your own serve. The user is redirected back from PayPal to 
   the URL that this object listens on, e.g. /paypal and the call will contain the payer id (or it is a cancellation)
-  4. Add the object that extends PayPalRestHelper to boot: LiftRules.dispatch.append(PayPalRestServer)
+  E.g.
+    object YourPayPalRestServer extends PayPalRestHelper {
+      serve {
+        case List("paypal") Get req => withPayerId(req, (payerId: PayerId) => {
+          msgComet(payerId)
+          RedirectResponse("/your/url/here", req)
+        })
+      
+        case List("paypal", "cancel") Get req =>
+          msgComet(CancelPayment)
+          RedirectResponse("/your/cancel/url/here", req)
+      }
+    
+      def msgComet(msg: Any) = S.session.foreach(
+        _.sendCometActorMessage("YourComet", Empty, msg)
+      )
+    }
+    
+  4. Add to boot from the previous step: LiftRules.dispatch.append(YourPayPalRestServer)
 
 ## Installing
   Download lift-paypal_2.10-0.0.1.jar into your project or [build it yourself](#building) (proper hosted builds coming soon)
