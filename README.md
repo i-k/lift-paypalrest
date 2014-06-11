@@ -97,9 +97,10 @@
   Add your Test credentials (see Installing) to /src/test/resources/props/test.default.props to make calls to PayPal
 
 ## Coming soon
-  Premade case classes for the logic between Comets and the API-actor
-  More default values to PayPalRestHelper
-  Hosted builds
+  * Premade case classes for the logic between Comets and the API-actor
+  * More default values to PayPalRestHelper
+  * Hosted builds
+  * Go from this to something easier: ![How to draw an owl](http://i.imgur.com/RadSf.jpg)
 
 ## License
 
