@@ -101,7 +101,8 @@
   * More default values to PayPalRestHelper
   * Hosted builds
   
-In other words Going from this to something easier:
+In other words adding a few steps in between this:
+
 ![How to draw an owl](http://i.imgur.com/RadSf.jpg)
 
 ## License
