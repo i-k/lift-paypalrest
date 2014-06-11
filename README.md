@@ -100,7 +100,9 @@
   * Premade case classes for the logic between Comets and the API-actor
   * More default values to PayPalRestHelper
   * Hosted builds
-  * Go from this to something easier: ![How to draw an owl](http://i.imgur.com/RadSf.jpg)
+  
+In other words Going from this to something easier:
+![How to draw an owl](http://i.imgur.com/RadSf.jpg)
 
 ## License
 
