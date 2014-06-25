@@ -11,7 +11,7 @@
 * All PayPal messages are case classes
 
 ## Example Usage
-  1. Create an Actor object that extends LiftPayPalServer.
+  1. Create an Actor object that extends `LiftPayPalServer`.
   This Actor makes the actual API calls and deals with handling tokens, etc.
   2. Create a Comet for dealing with the purchasing logic.
   This Comet will send messages to the actor from the previous step
@@ -27,8 +27,8 @@
         case AuthorizationCreated(id, approvalUrl) => ...
       }
     
-  3. Create an object that extends PayPalRestHelper and add your own serve. The user is redirected back from PayPal to 
-  the URL that this object listens on, e.g. /paypal and the call will contain the payer id (or it is a cancellation)
+  3. Create an object that extends `PayPalRestHelper` and add your own `serve`. The user is redirected back from PayPal to 
+  the URL that this object listens on, e.g. **/paypal** and the call will contain the payer id (or it is a cancellation)
   E.g.
 
       object YourPayPalRestServer extends PayPalRestHelper {
@@ -48,7 +48,7 @@
         )
       }
     
-  4. Add to boot from the previous step:
+  4. Add to `boot` from the previous step:
   
         LiftRules.dispatch.append(YourPayPalRestServer)
 
